@@ -1,0 +1,4 @@
+@EndUserText.label: 'CUSTOMER 000'
+define service ZSD_CUST_000 {
+  expose ZCV_CUST_00 as SalesTeam;
+}

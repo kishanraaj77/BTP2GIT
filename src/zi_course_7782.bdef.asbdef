@@ -1,0 +1,69 @@
+managed implementation in class zbp_i_course_7782 unique;
+with draft;
+//strict ( 2 );
+
+define behavior for ZI_COURSE_7782 //alias <alias_name>
+persistent table ZCOURSE_7782
+draft table ZCOURSE_D_7782
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+  association _Schedule { create; }
+
+
+
+field ( numbering : managed, readonly ) CourseUuid;
+
+
+  mapping for zcourse_xxxx
+{
+CourseUuid = course_uuid;
+CourseId = course_id;
+CourseName = course_name;
+CourseLength = course_length;
+Country = country;
+Price = price;
+CurrencyCode = currency_code;
+LastChangedAt = last_changed_at;
+LocalLastChangedAt = local_last_changed_at;
+}
+
+}
+
+define behavior for ZI_schedule_7782 alias Schedule
+persistent table ZSCHEDULE_7782
+draft table zschedule_D_7782
+lock dependent by _Course
+authorization dependent by _Course
+
+
+
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) CourseUuid;
+  association _Course;
+
+field ( numbering : managed, readonly ) ScheduleUuid;
+//field ( readonly ) CourseUuid;
+
+
+  mapping for zschedule_xxxx
+{
+ScheduleUuid = schedule_uuid;
+CourseBegin = course_begin;
+CourseUuid = course_uuid;
+Location = location;
+Trainer = trainer;
+IsOnline = is_online;
+LastChangedAt = last_changed_at;
+LocalLastChangedAt = local_last_changed_at;
+}
+
+
+}

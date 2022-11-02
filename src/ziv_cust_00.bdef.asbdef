@@ -1,0 +1,42 @@
+managed implementation in class zbp_iv_cust_00 unique;
+//with draft;
+strict ( 2 );
+
+define behavior for ZIV_CUST_00 alias SalesTeam
+persistent table ZDB_CUST_000
+//draft table zdr_cust_000
+lock master// total etag LastChangedAt
+authorization master ( instance )
+//etag master  LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+ field ( numbering : managed , readonly ) Id;
+  field ( readonly ) Closewon, Funding;
+  field ( readonly ) LastChangedAt, LocalLastChangedAt;
+
+
+
+  action ( features : instance ) setCW result [1] $self;
+  determination fundingchange on save { field Age; }
+  validation validateage on save {field Age; create;}
+
+
+
+  mapping for ZDB_CUST_000{
+
+   Id  = id;
+     Firstname = firstname;
+     Lastname = lastname;
+     Age= age;
+     Course = course;
+     Funding = funding ;
+     Closewon = closewon;
+     LastChangedAt = last_changed_at  ;
+      LocalLastChangedAt = local_last_changed_at;
+
+  }
+
+}

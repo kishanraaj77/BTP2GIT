@@ -1,0 +1,21 @@
+managed implementation in class zbp_cv_grkdb_000 unique;
+strict ( 2 );
+
+define behavior for ZCV_GRKDB_000 //alias <alias_name>
+persistent table ZDB_GRK_000
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+
+  mapping for ZDB_GRK_000{
+  UserName = user_name ;
+  FirstName = first_name;
+  LastName = last_name;
+
+  }
+}

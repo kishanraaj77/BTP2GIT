@@ -1,0 +1,4 @@
+@EndUserText.label: 'service defiintion for currency'
+define service ZSD_GRK_000 {
+  expose I_Currency as Currency;
+}

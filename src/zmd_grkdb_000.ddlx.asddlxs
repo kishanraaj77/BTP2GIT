@@ -1,0 +1,16 @@
+@Metadata.layer: #CORE
+annotate view ZCV_GRKDB_000
+    with 
+{ 
+@UI.lineItem: [{label : 'Email Id', 
+                position : 10 }]
+                UserName ;
+                
+  @UI.lineItem: [{label : 'First Name ', 
+                position : 20 }]
+                FirstName ;
+  @UI.lineItem: [{label : 'Last Name', 
+                position : 30 }]
+                LastName ;               
+                  
+}

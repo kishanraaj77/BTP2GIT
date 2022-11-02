@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_COURSE_7782 alias Course
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Schedule { create; }
+}
+
+define behavior for ZC_schedule_7782 alias Schedule
+{
+  use update;
+  use delete;
+
+  use association _Course;
+}

@@ -1,0 +1,93 @@
+@Metadata.layer: #CORE
+
+@UI: {
+
+ headerInfo: { typeName: 'Sales Team',
+
+               typeNamePlural: 'SAles Team',
+
+               title: { type: #STANDARD, label: 'SalesTeam', value: 'Id' }  },
+
+               presentationVariant: [{ sortOrder: [{ by: 'Id', direction:  #ASC }] }] }
+
+
+annotate view ZCV_CUST_00 with 
+{
+
+@UI.facet: [ { id:              'StudentApplicationID',
+
+                purpose:         #STANDARD,
+
+                type:            #IDENTIFICATION_REFERENCE,
+
+                label:           'SalesTeam',
+
+                position:        10 } ]
+
+ 
+@UI: {  lineItem:       [ { position: 20 } ],
+
+       identification: [ { position: 20 } ],
+
+       selectionField: [ { position: 20 } ] }
+
+ Firstname;
+
+ 
+
+ @UI: {  lineItem:       [ { position: 30 } ],
+
+       identification: [ { position: 30 } ],
+
+       selectionField: [ { position: 30 } ] }
+
+ Lastname;
+
+ 
+
+ @UI: {  lineItem:       [ { position: 40 } ],
+
+       identification: [ { position: 40 } ] }
+
+ Age;
+
+ 
+
+ @UI: {  lineItem:       [ { position: 50 } ],
+
+       identification: [ { position: 50 } ] }
+
+ Course;
+
+ 
+
+  @UI: {  lineItem:       [ { position: 60 } ],
+
+       identification: [ { position: 60 } ],
+
+       selectionField: [ { position: 60 } ] }
+
+ Funding;
+
+ 
+
+ @UI: {  lineItem:       [ { position: 70 }, { type: #FOR_ACTION, dataAction: 'setCW', label: 'Set Closewon' } ],
+
+       identification: [ { position: 70 }, { type: #FOR_ACTION, dataAction: 'setCW', label: 'Set Close Won' } ] }
+
+ Closewon;
+
+ 
+
+ @UI.hidden: true
+
+ LastChangedAt;
+
+ 
+
+  @UI.hidden: true
+
+
+ LocalLastChangedAt;
+
+}
